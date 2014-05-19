@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  address: MyString
+  name: MyString
+  capacity: 1
+
+two:
+  user_id: 1
+  address: MyString
+  name: MyString
+  capacity: 1

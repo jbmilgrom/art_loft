@@ -1,0 +1,13 @@
+img {
+	width: 30%;
+}
+
+div .col_1_of_2 {
+	float:left;
+	width: 30%;
+}
+
+div .col_2_of_2 {
+	float: right;
+	width: 58%;
+}

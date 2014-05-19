@@ -1,0 +1,20 @@
+<h1>Event</h1>
+
+<div class="section group">
+<!-- LEFT-HAND COLUMN -->
+  <div class="col span_1_of_2">
+  <ul class="events">
+    <% @events.each do |event| %>
+      <li>
+      	<%= link_to event.title, "/events/#{event.id}" %>
+        <% event.pieces.each do |piece| %>
+        	<h4><img src=<%= piece.url %>></h4>
+        <% end %>
+        <p><%= event.start_time %></p>
+        <p><%= event.end_time %></p>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+
+</div>

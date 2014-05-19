@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  f_name: MyString
+  l_name: MyString
+  username: MyString
+  email: MyString
+  hashed_password: MyString
+  is_artist: false
+  discipline: MyString
+  sub_discipline: MyString
+  abstract: MyText
+  bio: MyString
+
+two:
+  f_name: MyString
+  l_name: MyString
+  username: MyString
+  email: MyString
+  hashed_password: MyString
+  is_artist: false
+  discipline: MyString
+  sub_discipline: MyString
+  abstract: MyText
+  bio: MyString

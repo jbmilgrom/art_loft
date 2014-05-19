@@ -1,0 +1,6 @@
+<%= form_for venue_local do |f| %>
+  <%= f.text_field :address, { placeholder: "address" } %>
+  <%= f.text_field :url, { placeholder: "url" } %>
+  <%= f.hidden_field :user_id, value: user_id_local %>
+  <%= f.submit %>
+<% end %>

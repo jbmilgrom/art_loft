@@ -1,0 +1,40 @@
+<div class="section group">
+
+<h2><%= @event.title %></h2>
+
+</div>
+
+<div class="section group">
+<!-- LEFT-HAND COLUMN -->
+  <div class="col_1_of_2">
+  <!-- put profile picture of host -->
+  <p><%= link_to "Host Profile Pic", "/hosts/#{@host.id}" %></P>
+    <p>Host name: <%= @host.f_name %> <%= @host.l_name %></p>
+  </div>
+
+  <div class="col_2_of_2">
+    <ul>
+        <li><img src=<%= @venue.url%>></li>
+        <li><%= @venue.address %></li>
+        <li><%= @event.start_time %> | <%= @event.end_time %></li>
+    </ul>
+  </div>
+
+ </div>
+ <!-- need to make this work for more than one artist. In particular, need to think about how the pieces at an event associated with a single artist -->
+<% @artists.each do |artist| %>
+ <div class="section group">
+<!-- LEFT-HAND COLUMN -->
+  <div class="col_1_of_2">
+  <!-- put profile picture of host -->
+  <p> Artist Profile Pic </P>
+  <p> <%= artist.f_name %> <%= artist.l_name %></p>
+  </div>
+
+  <div class="col_2_of_2">
+        <% @event.pieces.each do |piece| %>
+          <h4><img src=<%= piece.url %>></h4>
+        <% end %>
+  </div>
+ </div>
+<% end %>

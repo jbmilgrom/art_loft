@@ -1,0 +1,24 @@
+<div class="section group">
+<!-- LEFT-HAND COLUMN -->
+  <div class="col_1_of_1">
+  <!-- put profile picture of host -->
+  <p>Host Profile Pic</P>
+  </div>
+</div>
+<div class="section group">
+    <div class="col_1_of_1">
+    <h4>events</h4>
+    <ul>
+      <% @events.each do |event| %>
+        <li><%= link_to event.title, "/events/#{event.id}" %></li>
+        <li><img src=<%= event.venue.url%>></li>
+        <li><img src=<%= event.pieces.first.url%>></li>
+      
+      <% end %>
+    </ul>
+    </div>
+  </div>
+  <div class="create_form">
+  <%= render partial: "venues/venueform", locals: { venue_local: @venue_new, user_id_local: @host.id }%>
+  </div>
+
