@@ -98,8 +98,8 @@ User.artists.each do |artist|
 	rand_time_2 = rand_time_1 + 3
 	#for each |artist|, create an event to showcase such artist's work
 	event = Event.create({
-		start_time: "#{rand_month} #{rand_date}, 2014 rand_time_1",
-		end_time: "#{rand_month} #{rand_date}, 	2014 rand_time_2",
+		start_time: "#{rand_month} #{rand_date}, 2014 #{rand_time_1}",
+		end_time: "#{rand_month} #{rand_date}, 	2014 #{rand_time_2}",
 		venue_id: venues.sample.id,
     title: Faker::Lorem.sentence
 	})	
