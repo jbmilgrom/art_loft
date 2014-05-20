@@ -12,4 +12,29 @@ class Event < ActiveRecord::Base
 	# has_many :users, through: :rsvps
 	has_many :rsvps
 
+	def artists
+		self.users.uniq
+	end
+
+	def host
+		self.venue.user
+	end
+
+	#this function organizes all of the pieces of a given event such that each set of the values in the resulting array is limited to a given artist
+	#this should be contrasted with event.pieces, which returns all of the pieces of a given event, each its own entry in the returned array - which is not in anyway organized by artists.
+
+	def pieces_by_artist
+	 pieces_by_artist = []
+		self.users.uniq.each do |user|
+			artist_array = []
+			user.pieces.each do |piece|
+				self.exhibitions.each do |exhibition|
+				 		artist_array << piece if piece.id == exhibition.piece_id
+				end				
+			end
+			pieces_by_artist << artist_array if artist_array != []
+		end
+	 pieces_by_artist
+	end
+
 end

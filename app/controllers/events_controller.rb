@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
 	def index
 
-		@events = Event.all
+		@events = Event.order(:start_time)
+	
 	end 
 
 	def show 
@@ -10,7 +11,7 @@ class EventsController < ApplicationController
 		@event = Event.find(id)
 		@venue = @event.venue
 		@host = @venue.user
-		@artists = @event.users.uniq
+		@artists = @event.artists
 
 
 	end
