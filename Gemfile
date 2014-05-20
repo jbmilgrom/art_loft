@@ -41,7 +41,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pry'
 gem 'pry-rails'
 gem 'httparty'
-gem 'bcrypt'
+gem 'bcrypt' 
 gem 'faker'
 gem 'rails_12factor'
 
