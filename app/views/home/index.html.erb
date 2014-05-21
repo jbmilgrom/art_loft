@@ -1,1 +1,34 @@
 <h1>ArtLoft</h1>
+
+<div class="section group">
+<!-- LEFT-HAND COLUMN -->
+  <div class="col span_1_of_2">
+  <ul class="events">
+    <% @events.each do |event| %>
+      
+      <li>
+        <p><%= link_to event.title, "/events/#{event.id}" %></p>
+        <p><%= event.start_time %></p>
+        <p><%= event.end_time %></p>
+      </li>
+     <ul>
+      	<% event.pieces_by_artist.each do |artist_array| %>
+        <!-- try and fix so that the artist name doesn't appear multiple times!!! -->
+        <li>
+          <%= link_to "#{artist_array[0].user.f_name} #{artist_array[0].user.l_name}", "/artists/#{artist_array[0].user_id}" %>
+        </li>
+        <ul>
+          <% artist_array.each do |piece| %>
+          <li>
+            <img src=<%= piece.url %>>
+          </li>
+          <% end %>
+        </ul>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </ul>
+  </div>
+
+</div>

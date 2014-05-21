@@ -5,8 +5,12 @@ class VenuesController < ApplicationController
 
 	def create
 		Venue.create(venue_attributes)
+		user_id = venue_attributes[:user_id]
+		user = User.find(user_id)
+		user.has_venue = true
+		user.save
 
-		redirect_to "/users/#{venue_attributes[:user_id]}"
+		redirect_to "/users/#{user_id}"
 	end
 
 	private

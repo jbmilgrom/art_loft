@@ -14,7 +14,7 @@ guston_url_array = ["http://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Gustonp
 
 artist_array = [warhol_url_array, gogh_url_array, cartier_bresson_url_array, guston_url_array]
 
-venues_url_array = ["http://media.trendland.com/wp-content/uploads/2012/12/industrial-loft-in-barcelona.jpg", "http://trends.archiexpo.com/wp-content/uploads/2014/01/Edmonds-Lee-Oriental-Loft-3.jpg", "http://o.homedsgn.com/wp-content/uploads/2011/02/WG-Loft-01.jpg","http://www.hyattsvillewire.com/wp-content/uploads/2012/06/Firehouse_Lofts_LR__Loft.jpg", "http://cdn.home-designing.com/wp-content/uploads/2013/05/modern-city-loft-6.jpeg", "http://uploads8.wikipaintings.org/images/philip-guston/deluge.jpg"]
+venues_url_array = ["http://media.trendland.com/wp-content/uploads/2012/12/industrial-loft-in-barcelona.jpg", "http://trends.archiexpo.com/wp-content/uploads/2014/01/Edmonds-Lee-Oriental-Loft-3.jpg", "http://o.homedsgn.com/wp-content/uploads/2011/02/WG-Loft-01.jpg","http://www.hyattsvillewire.com/wp-content/uploads/2012/06/Firehouse_Lofts_LR__Loft.jpg", "http://cdn.home-designing.com/wp-content/uploads/2013/05/modern-city-loft-6.jpeg", "http://o.homedsgn.com/wp-content/uploads/2011/02/Oriental-Warehouse-Loft-10.jpg"]
 
 
 

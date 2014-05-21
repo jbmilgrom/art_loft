@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 			id = current_user.id
 			@user = User.find(id)
 			@new_venue = Venue.new
+			@new_piece = Piece.new
 		else
 			redirect_to root_url, :notice => "Please sign in to see your profile!"
 		end

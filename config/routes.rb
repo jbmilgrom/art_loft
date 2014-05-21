@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get "/pieces" => "pieces#index"
+  resources :pieces
 
   get "/artists/:id" => "artists#show"
 

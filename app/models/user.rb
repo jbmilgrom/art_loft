@@ -60,5 +60,19 @@ class User < ActiveRecord::Base
       end
       return events
     end
-  	
+
+    # def artist_pieces_by_event
+    #    artist_pieces_by_event = []
+    #     self.events.uniq.each do |event|
+    #       pieces_by_event_array = []
+    #       event.pieces.each do |piece|
+    #         self.exhibitions.each do |exhibition|
+    #             pieces_by_event_array << piece if piece.id == exhibition.piece_id
+    #         end       
+    #       end
+    #       artist_pieces_by_event << pieces_by_event_array if pieces_by_event_array != []
+    #     end
+    #    artist_pieces_by_event
+    # end
+      	
 end
