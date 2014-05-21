@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
 
 	def show
-		id = params[:id]
-		@user = User.find(id)
+		if current_user
+			id = current_user.id
+			@user = User.find(id)
+			@new_venue = Venue.new
+		else
+			redirect_to root_url, :notice => "Please sign in to see your profile!"
+		end
 	end
 
 	def new
@@ -12,6 +17,7 @@ class UsersController < ApplicationController
 	def create
   		@user = User.new(user_attributes)
   		if @user.save
+  			session[:user_id] = @user.id
     		redirect_to root_url, :notice => "Signed up!"
   		else
     		render "new"

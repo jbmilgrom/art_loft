@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get "/pieces" => "pieces#index"
 
-  get "/users/:id" => "users#show"
-
   get "/artists/:id" => "artists#show"
 
   get "sign_up" => "users#new", :as => "sign_up"

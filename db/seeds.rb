@@ -20,29 +20,37 @@ venues_url_array = ["http://media.trendland.com/wp-content/uploads/2012/12/indus
 
 
 # creates 10 users
+i = 0
 10.times do 
-  	User.create({
+  	i += 1
+    user = User.new({
     f_name: Faker::Name.first_name,
     l_name: Faker::Name.last_name,
     bio: Faker::Lorem.paragraphs(2).join(""),
-    email: Faker::Internet.email,
+    email: "user#{i}@gmail.com",
     is_artist: false,
     has_venue: false
     })
+    user.password = "password123"
+    user.save
 end
 
 #creates a User for each sample Venue url in venues_url_array
 #creates array of venues for later use
 venues = []
+i = 0
 venues_url_array.each do |venue_url| 
-  user = User.create({
+  i += 1
+  user = User.new({
     f_name: Faker::Name.first_name,
     l_name: Faker::Name.last_name,
     bio: Faker::Lorem.paragraphs(2).join(""),
-    email: Faker::Internet.email,
+    email: "host#{i}@gmail.com",
     is_artist: false,
     has_venue: true
     })
+  user.password = "password123"
+  user.save
   venues << Venue.create({
   	user_id: user.id,
   	address: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state} #{Faker::Address.zip}",
@@ -52,15 +60,19 @@ end
 
 pieces = []
 #creates 4 Users, each with 4/5 Pieces
+i = 0
 artist_array.each do |artist|
-  user = User.create({
+  i += 1
+  user = User.new({
     f_name: Faker::Name.first_name,
     l_name: Faker::Name.last_name,
     bio: Faker::Lorem.paragraphs(2).join(""),
-    email: Faker::Internet.email,
+    email: "artist#{i}@gmail.com",
     is_artist: true,
     has_venue: false
     })
+  user.password = "password123"
+  user.save
   artist.each do |piece_url|
   	pieces << Piece.create({
   	user_id: user.id,

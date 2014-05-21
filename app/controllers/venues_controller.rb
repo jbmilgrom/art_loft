@@ -6,7 +6,7 @@ class VenuesController < ApplicationController
 	def create
 		Venue.create(venue_attributes)
 
-		redirect_to "/hosts/#{venue_attributes[:user_id]}"
+		redirect_to "/users/#{venue_attributes[:user_id]}"
 	end
 
 	private

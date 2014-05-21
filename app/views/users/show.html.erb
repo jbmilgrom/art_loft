@@ -1,44 +1,69 @@
 
 <!-- this needs major work after doing user authentication -->
-<h3>User Profile</h3>
 
+
+	<h3>User Profile</h3>
+
+	<div class="section group">
+
+	<h2><%= @user.f_name %> <%= @user.l_name %></h2>
+
+	</div>
+
+<% if current_user.is_artist %>
 <div class="section group">
-
-<h2><%= @user.f_name %> <%= @user.l_name %></h2>
-
+	<!-- LEFT-HAND COLUMN -->
+	<div class="col_1_of_2">
+	  <!-- put profile picture of host -->
+	  <% @user.pieces.each do |piece| %>
+        <li><img src=<%= piece.url %>> | <%= if piece.events.first.title != nil then link_to piece.events.first.title, "/events/#{piece.events.first.id}" end %></li>
+      <% end %>
+	</div>
 </div>
-
-<div class="section group">
-<!-- LEFT-HAND COLUMN -->
-  <div class="col_1_of_2">
-  <!-- put profile picture of host -->
-  <p><%= link_to "Host Profile Pic", "/hosts/#{@host.id}" %></P>
-    <p>Host name: <%= @host.f_name %> <%= @host.l_name %></p>
-  </div>
-
-  <div class="col_2_of_2">
-    <ul>
-        <li><img src=<%= @venue.url%>></li>
-        <li><%= @venue.address %></li>
-        <li><%= @event.start_time %> | <%= @event.end_time %></li>
-    </ul>
-  </div>
-
- </div>
- <!-- need to make this work for more than one artist. In particular, need to think about how the pieces at an event associated with a single artist -->
-<% @artists.each do |artist| %>
- <div class="section group">
-<!-- LEFT-HAND COLUMN -->
-  <div class="col_1_of_2">
-  <!-- put profile picture of host -->
-  <p> Artist Profile Pic </P>
-  <p> <%= artist.f_name %> <%= artist.l_name %></p>
-  </div>
-
-  <div class="col_2_of_2">
-        <% @event.pieces.each do |piece| %>
-          <h4><img src=<%= piece.url %>></h4>
-        <% end %>
-  </div>
- </div>
 <% end %>
+
+<% if current_user.has_venue %>
+	<div class="section group">
+	  <div class="col_1_of_2">
+	  	<h3>Venues</h3>
+	    <ul>
+	    	<% current_user.venues.each do |venue| %>
+	        <li><img src=<%= venue.url%>></li>
+	        <li><%= venue.address %></li>
+	        <% end %>
+	    </ul>
+	  </div>
+	</div>
+<% end %>
+ <div class="venue_form">
+ 	<h3>Add a new Venue here!</h3>
+  <%= render partial: "venues/venueform", locals: { venue_local: @new_venue, user_id_local: current_user.id }%>
+ </div>
+
+<% if current_user.has_venue && current_user.events_hosted != [] %>
+	<div class="section group">
+	  <div class="col_1_of_2">
+	  	<h3>Events</h3>
+	    
+	    <ul>
+	       <% current_user.venues.each do |venue| %>
+
+	       		<% venue.events.each do |event| %>
+ 		     		<li><%= link_to event.title, "/events/#{event.id}" %></li>
+ 		     		<li><p><img src=<%= event.venue.url%>></p></li> 
+ 		     		<ul>
+ 		     			<% event.pieces_by_artist.each do |pieces_by_artist_array|%>
+ 		     			<li><%= pieces_by_artist_array.first.user.f_name%> <%= pieces_by_artist_array.first.user.l_name%></li>
+ 		     			<li><img src=<%= pieces_by_artist_array.first.url%>></li>
+ 		     			<% end %>
+ 		     		</ul>
+ 		     	<% end %>
+	        <% end %>
+	    </ul>
+	  </div>
+	</div>
+<% end %>
+
+
+
+	
