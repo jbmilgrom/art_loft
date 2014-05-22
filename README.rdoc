@@ -1,8 +1,7 @@
 == README
 Data Model Structure:
 
-Main loop
-
+Main loop:  
 |User| --< |Piece| --< |Exhibition| >-- |Event| >-- |Venue| >-- |User|
 
 In other words, Users have many Pieces, and each Piece may have many Events.  Since an Event may also have many Pieces, Exhibitions serves to join to many-to-many relationship.
