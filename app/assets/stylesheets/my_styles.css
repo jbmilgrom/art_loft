@@ -76,18 +76,19 @@ img.user {
 	list-style: none;
 }
 
+
 .section_group div.col_1_of_2 {
-	display: block;
+	display: inline-block;
 	width: 32%;
 	float: left;
 	margin: 20px, 2px, 20px, 2px;
 }
 
 .section_group div.col_2_of_2 {
-	display: block;
+	display: inline-block;
 	width: 65%;
 	float: left;
-	margin: 20px, 2px, 20px, 2px;
+	margin: 80px, 2px, 20px, 2px;
 }
 
 #artist_font {

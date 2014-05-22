@@ -28,7 +28,7 @@
   <div class="col_1_of_2">
   <!-- put profile picture of host -->
   <p><img class="profile_pic" src=<%= artist.profile_pic %>></P>
-  <p> <%= artist.f_name %> <%= artist.l_name %></p>
+  <p> <%= link_to "#{artist.f_name} #{artist.l_name}", "/artists/#{artist.id}" %></p>
   </div>
 
   <div class="col_2_of_2">
