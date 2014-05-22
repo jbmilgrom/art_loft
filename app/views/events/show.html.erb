@@ -8,15 +8,15 @@
 <!-- LEFT-HAND COLUMN -->
   <div class="col_1_of_2">
   <!-- put profile picture of host -->
-  <p><%= link_to "Host Profile Pic", "/hosts/#{@host.id}" %></P>
-    <p>Host name: <%= @host.f_name %> <%= @host.l_name %></p>
+  <p><img class="profile_pic" src=<%= @host.profile_pic %>></P>
+  <p> <%= link_to "#{@host.f_name} #{@host.l_name}", "/hosts/#{@host.id}" %></p>
   </div>
 
   <div class="col_2_of_2">
     <ul>
-        <li><img src=<%= @venue.url%>></li>
         <li><%= @venue.address %></li>
-        <li><%= @event.start_time %> | <%= @event.end_time %></li>
+        <li><img src=<%= @venue.url%>></li>
+        <li><strong><%= @event.start_hour %></strong> | <%= @event.start_date %></li>
     </ul>
   </div>
 
