@@ -1,4 +1,13 @@
 == README
+Data Model Structure:
+
+Main loop
+|User| --< |Piece| --< |Exhibition| >-- |Event| >-- |Venue| >-- |User|
+
+In other words, Users have many Pieces, and each Piece may have many Events.  Since an Event may also have many Pieces, Exhibitions serves to join to many-to-many relationship.
+Interestingly, A User can where 3 hats in the app.  He can be just a normal user who peruses the site and maybe looks for events to attend.  He can be an artist who uploads photos and attempts to showcase art at a given event.  He may also be a Host who supplies the Venue for a given event.
+While the 3 hats exist, this is all accounted for in the User table, where two booleans have been setup (:is_artist and :has_venue) to keep track of the actions of the User.  
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
