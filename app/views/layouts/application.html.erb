@@ -12,16 +12,45 @@
 <% end %>
 
 <body>
-	<div id="user_nav">
-  		<% if current_user %>
-    		Logged in as <%= current_user.email %>.
-    		<%= link_to "Log out", log_out_path %>
-						<!-- make into button -->
-    		<p/><%= link_to "#{current_user.f_name}", "/users/#{current_user.id}" %><p>
-  		<% else %>
-    		<%= link_to "Sign up", sign_up_path %> | <%= link_to "log in", log_in_path %>
-  		<% end %>
-</div>
+
+  <nav>
+    <a id="home" href="/"><h2>ArtLoft</h2>
+    <div id="user_nav">
+      <% if current_user %>
+         <%= link_to "#{current_user.f_name}", "/users/#{current_user.id}" %> <br>
+        Logged in as <%= current_user.email %>
+
+        <%= link_to "| Log out", log_out_path %>
+            <!-- make into button -->
+       
+      <% else %>
+        <%= link_to "Sign up", sign_up_path %> | <%= link_to "log in", log_in_path %>
+      <% end %>
+    </div>    
+    <div id="global_nav">
+      <a href="/pieces/create">
+        <span class="tabContent">
+          <span class="topContent">
+            Show
+          </span>
+          <span class="botContent">
+            your Art ||
+          </span>
+        </span>
+      </a>
+      <a href="/venues/create">
+        <span class="tabContent">
+          <span class="topContent">
+            Host
+          </span>
+          <span class="botContent">
+            an Event
+          </span>
+        </span>
+      </a>      
+    </div>  
+  </nav>
+
 
 
 

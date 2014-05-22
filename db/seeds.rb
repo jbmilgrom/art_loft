@@ -16,6 +16,8 @@ artist_array = [warhol_url_array, gogh_url_array, cartier_bresson_url_array, gus
 
 venues_url_array = ["http://media.trendland.com/wp-content/uploads/2012/12/industrial-loft-in-barcelona.jpg", "http://trends.archiexpo.com/wp-content/uploads/2014/01/Edmonds-Lee-Oriental-Loft-3.jpg", "http://o.homedsgn.com/wp-content/uploads/2011/02/WG-Loft-01.jpg","http://www.hyattsvillewire.com/wp-content/uploads/2012/06/Firehouse_Lofts_LR__Loft.jpg", "http://cdn.home-designing.com/wp-content/uploads/2013/05/modern-city-loft-6.jpeg", "http://o.homedsgn.com/wp-content/uploads/2011/02/Oriental-Warehouse-Loft-10.jpg"]
 
+faces_url_array = ["http://resources0.news.com.au/images/2009/10/13/1225786/108880-famous-faces-with-braces.jpg", "http://archives.deccanchronicle.com/sites/default/files/styles/article_node_view/public/oprah-winfrey-ap-1308.jpg", "http://2.bp.blogspot.com/-Fhhm-5sChLc/TorJrWWu_LI/AAAAAAAABik/RqjhhZnpxfo/s320/Jackie_Chan_2002-720825.jpg", "http://4.bp.blogspot.com/-ey4J5AJGVIk/TorJpy-fuCI/AAAAAAAABic/U3vyGmp_0aE/s1600/famous_travolta_1_july_2007.jpg", "http://content8.flixster.com/question/67/55/21/6755218_std.jpg", "http://www.healthline.com/hlcmsresource/images/topic_centers/Psoriasis/SS/Famous_Faces/285x285_Famous_Faces_Psoriasis_Slide_8.jpg", "http://cdn7.staztic.com/app/a/2441/2441247/famous-faces-hd-lwp-2-1-s-307x512.jpg", "http://www.redorbit.com/media/uploads/2013/08/famous-face-dementia-617x416.jpg", "http://santamonicaschools.losangelesrealestatevoice.com/files/2013/10/marilyn-monroe.jpg", "http://content6.flixster.com/question/67/55/22/6755228_std.jpg", "http://i.dailymail.co.uk/i/pix/2014/01/24/article-2545209-1BBD255D000005DC-695_306x423.jpg", "http://cdn8.staztic.com/app/a/2342/2342349/famous-faces-live-wallpapers-331973-3-s-307x512.jpg", "http://blog.petspyjamas.com/uploads/2013/11/leo2.jpg", "http://images.smh.com.au/2010/11/09/2034431/cgable-600x400.jpg", "http://cdn8.staztic.com/app/a/2514/2514931/famous-faces-wallpaper-2-3-s-307x512.jpg", "http://cdn8.staztic.com/app/a/2287/2287816/famous-faces-wallpapers-hd-177846-1-s-307x512.jpg", "http://www.glenmuir.com/cms_media/images/justin_timberlake_sports_blue_golf_apparel_for_celebrity_event.jpg", "http://fc05.deviantart.net/fs70/i/2012/140/9/f/jack_nicholson_vector_by_atebitninja-d50hm15.jpg"].uniq
+
 
 
 
@@ -47,7 +49,8 @@ venues_url_array.each do |venue_url|
     bio: Faker::Lorem.paragraphs(2).join(""),
     email: "host#{i}@gmail.com",
     is_artist: false,
-    has_venue: true
+    has_venue: true,
+    profile_pic: faces_url_array[i-1]
     })
   user.password = "password123"
   user.save
@@ -60,16 +63,18 @@ end
 
 pieces = []
 #creates 4 Users, each with 4/5 Pieces
-i = 0
+e = 0
 artist_array.each do |artist|
+  e += 1
   i += 1
   user = User.new({
     f_name: Faker::Name.first_name,
     l_name: Faker::Name.last_name,
     bio: Faker::Lorem.paragraphs(2).join(""),
-    email: "artist#{i}@gmail.com",
+    email: "artist#{e}@gmail.com",
     is_artist: true,
-    has_venue: false
+    has_venue: false,
+    profile_pic: faces_url_array[i]
     })
   user.password = "password123"
   user.save

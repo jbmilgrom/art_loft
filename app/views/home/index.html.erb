@@ -1,34 +1,36 @@
-<h1>ArtLoft</h1>
+<div id="home_pic" style = "background-image: url(<%= @sample %>);">
+</div>
 
-<div class="section group">
-<!-- LEFT-HAND COLUMN -->
-  <div class="col span_1_of_2">
-  <ul class="events">
-    <% @events.each do |event| %>
-      
-      <li>
-        <p><%= link_to event.title, "/events/#{event.id}" %></p>
-        <p><%= event.start_time %></p>
-        <p><%= event.end_time %></p>
-      </li>
+
+<% @events.each do |event| %>
+<div class="section_group">
+  <div class="col_1_of_2">
+    <ul class="events">
+       <li><h3><%= event.start_hour %></h3></li>
+      <li><%= event.start_date %></li>
+      <li><%= event.venue.address %></li>
+    </ul>
+  </div>
+  <div class="col_2_of_2">
      <ul>
+        <li class="title"><h2><%= link_to event.title, "/events/#{event.id}" %></h2></li>
       	<% event.pieces_by_artist.each do |artist_array| %>
         <!-- try and fix so that the artist name doesn't appear multiple times!!! -->
-        <li>
-          <%= link_to "#{artist_array[0].user.f_name} #{artist_array[0].user.l_name}", "/artists/#{artist_array[0].user_id}" %>
-        </li>
-        <ul>
-          <% artist_array.each do |piece| %>
+        <div id="artist_profile_wrapper">
           <li>
-            <img src=<%= piece.url %>>
+            <a href="/artists/<%= artist_array[0].user_id %>"><h2 id="artist_font">Artist</h2></a>
           </li>
-          <% end %>
-        </ul>
-      </li>
-      <% end %>
-    </ul>
+          <li><a class="user_pic" href="/artists/<%=artist_array[0].user_id %>"><img class="user" src=<%= artist_array.first.user.profile_pic %>></a></li>
+        </div> 
+        <li class="piece"><a class="piece" href="/artists/<%=artist_array[0].user_id %>"><img class="piece" src=<%= artist_array[0].url %>></a></li> 
+        <div id="host_profile_wrapper">
+          <li>
+            <a href="/hosts/<%= event.venue.user_id %>"><h2 id="host_font">Host</h2></a>
+          </li>
+          <li><a class="user_pic" href="/hosts/<%= event.venue.user_id %>"><img class="user" src=<%= event.venue.user.profile_pic %>></a></li>          
+        </div>
     <% end %>
   </ul>
   </div>
-
 </div>
+<% end %>

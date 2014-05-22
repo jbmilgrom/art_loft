@@ -1,13 +1,186 @@
-img {
-	width: 30%;
+@import url(http://fonts.googleapis.com/css?family=Muli|Open+Sans:400,700|Montserrat:400,700|Varela);
+@import url(http://fonts.googleapis.com/css?family=Parisienne|Great+Vibes);
+
+/*font-family: 'Muli', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Varela', sans-serif;
+font-family: 'Great Vibes', cursive;
+font-family: 'Parisienne', cursive;*/
+
+body {
+	margin: 20px;
+	background-color: #ecf0f1;
+	font-family: 'Open Sans', sans-serif;
+	color: #3b434f;
+}
+/*a:hover.user_pic {
+	border-radius: 60px;
+	width: 100px;
+	border: 6px solid #3b434f;
+}*/
+
+img.user {
+	border-radius: 60px;
+	width: 100px;	
 }
 
-div .col_1_of_2 {
+/*div.section_group {
+	width: 90%;
+	margin: 50px, 0, 50px, 0;
+	padding: 50px;
+	display: block;
+	border: 2px solid black;
+	height: 300px;
+}*/
+
+.col_1_of_2 ul {
+	margin-top: 30%;
+}
+
+.col_2_of_2 li.title {
+	text-align: center;
+}
+
+.col_2_of_2 div#artist_profile_wrapper {
+	display: inline-block;
+	width: 20%;
+	float: left;
+}
+
+#artist_profile_wrapper li {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.col_2_of_2 div#host_profile_wrapper {
+	display: inline-block;
+	width: 20%;
+	float: left;
+}
+
+#host_profile_wrapper li {
+	margin-left: 40px;
+	text-align: center;
+}
+
+.col_2_of_2 li.piece {
+	display: inline-block;
+	width: 50%;
+	float: left;
+}
+
+.col_2_of_2 a.piece {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.col_2_of_2 img.piece {
+	width: 80%;
+/*	margin-left: 40px;*/
+	/*margin-left: 60px;*/
+	margin-left: 120px;
+}
+
+
+.section_group li {
+	list-style: none;
+}
+
+.section_group div.col_1_of_2 {
+	display: block;
+	width: 32%;
+	float: left;
+	margin: 20px, 2px, 20px, 2px;
+}
+
+.section_group div.col_2_of_2 {
+	display: block;
+	width: 65%;
+	float: left;
+	margin: 20px, 2px, 20px, 2px;
+}
+
+#artist_font {
+	font-family: 'Parisienne', cursive;
+}
+/*div .col_1_of_2 {
 	float:left;
 	width: 30%;
 }
 
 div .col_2_of_2 {
 	float: right;
-	width: 58%;
+	width: 58%;*/
 }
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none
+}
+
+a:link {
+	color: inherit;
+}
+
+a:visited {
+	color: inherit;
+}
+
+a:hover {
+	background-color: #3b434f;
+	color: rgb(255, 255, 255);
+}
+
+nav {
+	margin: 10px;
+	border-radius: 10px;
+	color: #3b434f;
+	background-color: rgb(255, 255, 255);
+}
+
+nav a#home{
+	width: 350px;
+	height: 100px;
+}
+
+div#user_nav {
+	display: inline-block;
+	width: 350px;
+	float: right;
+	margin-top: -30px
+}
+/*div#home_pic {
+	display: block;
+	width: 100%;
+	height: 500px;
+	background-image: url('http://artsintherightplace.files.wordpress.com/2011/01/guernica.jpg');
+	background-size: cover;
+}*/
+#home_pic {
+	display: block;
+	width: 100%;
+	height: 500px;
+	background-size: cover;
+	border-radius: 10px;
+}
+
+img {
+	max-width: 50%;
+}
+
+li {
+	list-style: none
+}
+/*#home_pic img {
+	width: 100%;
+	height: 100%;
+}*/
+
+/*#tabcontent {
+	float: right;
+}*/

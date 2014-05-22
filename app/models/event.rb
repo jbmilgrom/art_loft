@@ -36,5 +36,18 @@ class Event < ActiveRecord::Base
 		end
 	 pieces_by_artist
 	end
+	def start_date
+		self.start_time.strftime("%B %-d, %Y")
+	end
+	def start_hour
+		self.start_time.strftime("%-I:%M %p")
+	end
+
+	def end_date
+		self.end_time.strftime("%B %-d, %Y")
+	end
+	def end_hour
+		self.end_time.strftime("%-I:%M %p")
+	end
 
 end
