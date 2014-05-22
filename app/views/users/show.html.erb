@@ -2,11 +2,11 @@
 <!-- this needs major work after doing user authentication -->
 
 
-	<h3>User Profile</h3>
+	<h3><%= @user.f_name %> <%= @user.l_name %> | <%= link_to "Edit", "/users/#{@user.id}/edit" %></h3>
 
 	<div class="section group">
+	<h2><img class="profile_pic" src=<%= @user.profile_pic %>></h2>
 
-	<h2><%= @user.f_name %> <%= @user.l_name %></h2>
 
 	</div>
 <% if current_user %>

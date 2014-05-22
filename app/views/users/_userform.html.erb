@@ -1,0 +1,6 @@
+<%= form_for user_local do |f| %>
+  <%= f.text_field :f_name, { placeholder: "First Name" } %>
+  <%= f.text_field :l_name, { placeholder: "Last Name" } %>
+  <%= f.text_field :profile_pic, { placeholder: "url" } %>
+  <%= f.submit %>
+<% end %>

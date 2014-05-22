@@ -147,6 +147,16 @@ img {
 	max-width: 50%;
 }
 
+img.profile_pic {
+	border-radius: 60px;
+	width: 300px;
+}
+
 li {
 	list-style: none
+}
+
+div#edit_form {
+	width: 50%;
+	margin: 0 auto;
 }
