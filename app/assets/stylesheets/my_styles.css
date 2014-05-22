@@ -14,25 +14,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color: #3b434f;
 }
-/*a:hover.user_pic {
-	border-radius: 60px;
-	width: 100px;
-	border: 6px solid #3b434f;
-}*/
+
 
 img.user {
 	border-radius: 60px;
 	width: 100px;	
 }
 
-/*div.section_group {
-	width: 90%;
-	margin: 50px, 0, 50px, 0;
-	padding: 50px;
-	display: block;
-	border: 2px solid black;
-	height: 300px;
-}*/
 
 .col_1_of_2 ul {
 	margin-top: 30%;
@@ -105,15 +93,7 @@ img.user {
 #artist_font {
 	font-family: 'Parisienne', cursive;
 }
-/*div .col_1_of_2 {
-	float:left;
-	width: 30%;
-}
 
-div .col_2_of_2 {
-	float: right;
-	width: 58%;*/
-}
 
 ul {
 	list-style: none;
@@ -154,13 +134,7 @@ div#user_nav {
 	float: right;
 	margin-top: -30px
 }
-/*div#home_pic {
-	display: block;
-	width: 100%;
-	height: 500px;
-	background-image: url('http://artsintherightplace.files.wordpress.com/2011/01/guernica.jpg');
-	background-size: cover;
-}*/
+
 #home_pic {
 	display: block;
 	width: 100%;
@@ -176,11 +150,3 @@ img {
 li {
 	list-style: none
 }
-/*#home_pic img {
-	width: 100%;
-	height: 100%;
-}*/
-
-/*#tabcontent {
-	float: right;
-}*/
