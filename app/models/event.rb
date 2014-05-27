@@ -36,6 +36,7 @@ class Event < ActiveRecord::Base
 		end
 	 pieces_by_artist
 	end
+	
 	def start_date
 		self.start_time.strftime("%B %-d, %Y")
 	end
