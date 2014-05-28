@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 	def show
 		if current_user
 			id = current_user.id
-			@user = User.find(id)
+			#legacy code.  @user is not needed because I know have the current_user method available everywhere
+      @user = User.find(id)
 			@new_venue = Venue.new
 			@new_piece = Piece.new
 		else

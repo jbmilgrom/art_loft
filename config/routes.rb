@@ -2,15 +2,22 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :pieces
+  # resources :pieces
 
-  get "/artists/:id" => "artists#show"
+  #get "/artists/:id" => "artists#show"
+  resources :artists, only: [:show]
 
-  get "sign_up" => "users#new", :as => "sign_up"
-  resources :users
+  #get "/hosts/:id" => "hosts#show"
+  resources :hosts, only: [:show]
 
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
+  get "/sign_up" => "users#new", :as => "sign_up"
+  resources :users do
+    resources :pieces
+  end
+
+
+  get "/log_out" => "sessions#destroy", :as => "log_out"
+  get "/log_in" => "sessions#new", :as => "log_in"
   resources :sessions
   # post "/pieces" => "pieces#create"
 
@@ -23,8 +30,6 @@ Rails.application.routes.draw do
 
   # post "/events" => "events#create"
 
-  get "/hosts/:id" => "hosts#show"
-
   
   # get "/venues" => "venues#index"
 
@@ -35,12 +40,12 @@ Rails.application.routes.draw do
   # get "/venues/:id/edit" => "venues#edit"
 
 
+  resources :events
+  # get "/events" => "events#index"  
 
-  get "/events" => "events#index"  
+  # # post "/events" => "events#create"
 
-  # post "/events" => "events#create"
-
-  get "/events/:id" => "events#show"
+  # get "/events/:id" => "events#show"
 
   # get "/events/:id/edit" => "events#edit"
 

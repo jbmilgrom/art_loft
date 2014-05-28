@@ -12,9 +12,16 @@ class EventsController < ApplicationController
 		@venue = @event.venue
 		@host = @venue.user
 		@artists = @event.artists
-
-
 	end
 
+	def new
+		@event = Event.new
+	end
+
+	private
+
+  	def user_attributes
+    	params.require(:event).permit(:f_name, :l_name, :email, :password, :profile_pic, :user_id)
+  	end
 
 end

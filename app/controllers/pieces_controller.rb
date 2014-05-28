@@ -4,8 +4,12 @@ class PiecesController < ApplicationController
 	end 
 
 	def create
-		Piece.create(piece_attributes)
-		user_id = piece_attributes[:user_id]
+		#params passes the URL! Figure out why.
+		Piece.create({
+			url: piece_attributes[:url], 
+			user_id: params[:user_id]
+		})
+		user_id = params[:user_id]
 		user = User.find(user_id)
 		user.is_artist = true
 		user.save
@@ -16,6 +20,6 @@ class PiecesController < ApplicationController
 	private
 
   	def piece_attributes
-    	params.require(:piece).permit(:url, :user_id)
+    	params.require(:piece).permit(:url)
   	end
 end

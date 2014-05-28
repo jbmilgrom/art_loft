@@ -9,14 +9,14 @@
 
 
 	</div>
-<% if current_user %>
+
 	<% if current_user.is_artist %>
 	<div class="section group">
 		<!-- LEFT-HAND COLUMN -->
 		<div class="col_1_of_2">
 		  <!-- put profile picture of host -->
 		  <!-- need to order pieces by event!!!!!! -->
-		  <% @user.pieces.each do |piece| %>
+		  <% current_user.pieces.each do |piece| %>
 	        <li><img src=<%= piece.url %>> <%= if piece.events != [] then link_to "| #{piece.events.first.title}", "/events/#{piece.events.first.id}" end %></li>
 	      <% end %>
 		</div>
@@ -24,7 +24,7 @@
 	<% end %>
 	 <div class="piece_form">
 	 	<h3><%= current_user.is_artist ? "Add a new piece here!" : "Upload some of your work and you are an artist!" %></h3>
-	  <%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece, user_id_local: current_user.id }%>
+	  <%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece }%>
 	 </div>
 
 
@@ -69,9 +69,7 @@
 		  </div>
 		</div>
 	<% end %>
-<% else %>
-You are not signed in
-<% end %>
+
 
 
 	
