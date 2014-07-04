@@ -1,8 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :venue
 	#purposely ommiting link to user through venue.
-	#as a result, I will need to call Event.venue.user
-	#as such i.e. directly
+	#as a result, I will need to call Event.venue.user as such i.e directly
 
 	has_many :users, through: :pieces
 	has_many :pieces, through: :exhibitions
