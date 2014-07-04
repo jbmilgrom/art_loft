@@ -22,6 +22,10 @@ img.user {
 }
 
 
+.artist_prof_pieces li {
+	margin: 40px;
+}
+
 .col_1_of_2 ul {
 	margin-top: 30%;
 }

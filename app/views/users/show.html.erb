@@ -13,18 +13,28 @@
 	<% if current_user.is_artist %>
 	<div class="section group">
 		<!-- LEFT-HAND COLUMN -->
-		<div class="col_1_of_2">
+		<div class="artist_prof_pieces">
 		  <!-- put profile picture of host -->
 		  <!-- need to order pieces by event!!!!!! -->
 		  <% current_user.pieces.each do |piece| %>
-	        <li><img src=<%= piece.url %>> <%= if piece.events != [] then link_to "| #{piece.events.first.title}", "/events/#{piece.events.first.id}" end %></li>
+	        <li>
+	        	<img src=<%= piece.url %>> 
+	        	<strong> Events: </strong> 
+	        	<% if piece.events != [] %>
+	        		<%= link_to "#{piece.events.first.title}", "/events/#{piece.events.first.id}"  %>
+	        		<br>
+	        	<% else %>
+	        		No Events Yet!
+	        		<br>
+	        	<% end %>
+	        </li>
 	      <% end %>
 		</div>
 	</div>
 	<% end %>
 	 <div class="piece_form">
 	 	<h3><%= current_user.is_artist ? "Add a new piece here!" : "Upload some of your work and you are an artist!" %></h3>
-	  <%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece }%>
+	  	<%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece }%>
 	 </div>
 
 
@@ -34,8 +44,8 @@
 		  	<h3>Venues</h3>
 		    <ul>
 		    	<% current_user.venues.each do |venue| %>
-		        <li><img src=<%= venue.url%>></li>
-		        <li><%= venue.address %></li>
+			        <li><img src=<%= venue.url%>></li>
+			        <li><%= venue.address %></li>
 		        <% end %>
 		    </ul>
 		  </div>
@@ -59,8 +69,8 @@
 	 		     		<li><p><img src=<%= event.venue.url%>></p></li> 
 	 		     		<ul>
 	 		     			<% event.pieces_by_artist.each do |pieces_by_artist_array|%>
-	 		     			<li><%= pieces_by_artist_array.first.user.f_name%> <%= pieces_by_artist_array.first.user.l_name%></li>
-	 		     			<li><img src=<%= pieces_by_artist_array.first.url%>></li>
+		 		     			<li><%= pieces_by_artist_array.first.user.f_name%> <%= pieces_by_artist_array.first.user.l_name%></li>
+		 		     			<li><img src=<%= pieces_by_artist_array.first.url%>></li>
 	 		     			<% end %>
 	 		     		</ul>
 	 		     	<% end %>
