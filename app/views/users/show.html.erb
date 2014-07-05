@@ -17,9 +17,8 @@
 
 <% if current_user.is_artist %>
 	<div class="section group">
-		<!-- LEFT-HAND COLUMN -->
+		<h2>My Pieces</h2>
 	  <div class="artist_prof_pieces">
-		  <!-- put profile picture of host -->
 		  <!-- need to order pieces by event!!!!!! -->
 		 <% current_user.pieces.each do |piece| %>
 	      <li>

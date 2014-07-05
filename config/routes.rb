@@ -8,24 +8,16 @@ Rails.application.routes.draw do
   get "/log_in" => "sessions#new", :as => "log_in"
   resources :sessions, except: [:new, :destroy]
 
-  # resources :pieces
-
-  #get "/artists/:id" => "artists#show"
   resources :artists, only: [:show]
 
-  #get "/hosts/:id" => "hosts#show"
   resources :hosts, only: [:show]
-
 
   resources :users do
     resources :pieces
+    #resources :venues
   end
 
-
-
-
   post "/venues" => "venues#create"
-
 
   resources :events
 

@@ -4,6 +4,7 @@ class PiecesController < ApplicationController
 	end 
 
 	def create
+		binding.pry
 		#params passes the URL! Figure out why.
 		Piece.create({
 			url: piece_attributes[:url], 
@@ -14,7 +15,7 @@ class PiecesController < ApplicationController
 		user.is_artist = true
 		user.save
 
-		redirect_to "/users/#{user_id}"
+		redirect_to user_path(user_id)
 	end
 
 	private

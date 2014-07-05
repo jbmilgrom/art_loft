@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def show
 		if current_user
 			id = current_user.id
-			#legacy code.  @user is not needed because I know have the current_user method available everywhere
+      # Don't do id = params[:id] to ensure user authentication 
       @user = User.find(id)
 			@new_venue = Venue.new
 			@new_piece = Piece.new
@@ -36,8 +36,6 @@ class UsersController < ApplicationController
   	def update
   		user = User.find(params[:id])
     	user.update_attributes(user_attributes)
-    	# user.save
-
     	redirect_to user_path
   	end
 
