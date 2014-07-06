@@ -9,8 +9,7 @@ class EventsController < ApplicationController
 	def show 
 		id = params[:id]
 		@event = Event.find(id)
-		@venue = @event.venue
-		@host = @venue.user
+		@host = @event.host
 		@artists = @event.artists
 	end
 

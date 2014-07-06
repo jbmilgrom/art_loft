@@ -4,10 +4,11 @@ Data Model Structure:
 Main loop:  
 |User| --< |Piece| --< |Exhibition| >-- |Event| >-- |Venue| >-- |User|
 
-A User may have many Pieces, and each Piece may be displayed at multiple Events.  Since an Event may also have many Pieces, the Exhibition data model is used to join the many-to-many relationship between Piece and Event.
+A User may have many Pieces, and each Piece may be displayed at multiple Events.  Since an Event may also display many Pieces, the Exhibition data model is needed to join the many-to-many relationship between Piece and Event.
 
-A User of the application can wear 3 hats: (1) the most common  user who peruses the site and maybe looks for events to attend.  He can be an artist who uploads photos and attempts to showcase art at a given event.  He may also be a Host who supplies the Venue for a given event.
-While the 3 hats exist, this is all accounted for in the User table, where two booleans have been setup (:is_artist and :has_venue) to keep track of the actions of the User.  
+A single User of the application can wear 1, 2 or 3 hats, in any combination: (1) a consumer interested in Events to attend, Pieces to View, etc; (2) an artist interested in having Pieces viewed on the site or displayed at Events; and (3) a host interested in displaying Pieces at an Event.  The application accounts for this complexity simply through two booleans in the User moder, :is_artist? and :has_venue?, that are set to False by default.  If a User adds a Piece, the Piece controller sets :is_artist? to True.  If a User adds a Venue, the Venue controller sets has_venue? to True.  A User's private profile (show.html.erb)	  
+
+without separate "artist" or "host"
 
 
 This README would normally document whatever steps are necessary to get the
