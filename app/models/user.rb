@@ -32,9 +32,9 @@ class User < ActiveRecord::Base
         self.hashed_password = BCrypt::Engine.hash_secret(password, password_salt)
       end
     end
-	  
 
-
+    #Trying out different notation for class method... 
+    #A class which inherits from Self and thus imbeds a method on the class itself. 
   	class << self
   		def artists
   			self.where(is_artist: true)
