@@ -12,7 +12,7 @@
   <h3>
   	<%= current_user.is_artist ? "Add a new piece here!" : "Upload some of your work and you are an artist!" %>
   </h3>
-  <%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece }%>
+  <%= render partial: "pieces/pieceform", locals: { piece_local: @new_piece, user_local: current_user }%>
 </div>
 
 <% if current_user.is_artist %>

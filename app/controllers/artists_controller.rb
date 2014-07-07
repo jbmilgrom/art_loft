@@ -6,8 +6,7 @@ class ArtistsController < ApplicationController
 	def show
 		id = params[:id]
 		@artist = User.find(id)
-		@pieces = @artist.pieces
-
+		@pieces = @artist.piece
 	end
 
 end

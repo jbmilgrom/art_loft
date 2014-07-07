@@ -4,7 +4,6 @@ class PiecesController < ApplicationController
 	end 
 
 	def create
-		binding.pry
 		#params passes the URL! Figure out why.
 		Piece.create({
 			url: piece_attributes[:url], 
