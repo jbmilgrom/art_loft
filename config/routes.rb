@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :hosts, only: [:show]
 
   resources :users do
-    resources :pieces
+    resources :pieces, shallow: true
     #resources :venues
   end
 
