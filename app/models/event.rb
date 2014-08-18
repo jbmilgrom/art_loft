@@ -29,38 +29,38 @@ class Event < ActiveRecord::Base
     
     #iterate over each user that has an exhibition at this event
     self.users.uniq.each do |user|
-    	an_artists_pieces = []
+      an_artists_pieces = []
     
-    	#a user may have pieces not being showcased at this particular event, so...
-    	#select a user's piece if associated with any of this event's exhibitions
-    	user.pieces.each do |piece|
-      	self.exhibitions.each do |exhibition|
-			  	an_artists_pieces << piece if piece.id == exhibition.piece_id
-				end				
-			end
+      #a user may have pieces not being showcased at this particular event, so...
+      #select a user's piece if associated with any of this event's exhibitions
+      user.pieces.each do |piece|
+        self.exhibitions.each do |exhibition|
+	  an_artists_pieces << piece if piece.id == exhibition.piece_id
+	end				
+      end
 		  
-		  #push array of peices (now) associated with a single user into array wrapper
-		  pieces_by_artist << an_artists_pieces 
-	  end
+      #push array of peices (now) associated with a single user into array wrapper
+      pieces_by_artist << an_artists_pieces 
+    end
   	
-  	pieces_by_artist
+    pieces_by_artist
   	
   end
 
-	def start_date
-		self.start_time.strftime("%B %-d, %Y")
-	end
-	
-	def start_hour
-		self.start_time.strftime("%-I:%M %p")
-	end
-	
-	def end_date
-		self.end_time.strftime("%B %-d, %Y")
-	end
-	
-	def end_hour
-		self.end_time.strftime("%-I:%M %p")
-	end
+  def start_date
+    self.start_time.strftime("%B %-d, %Y")
+  end
+
+  def start_hour
+    self.start_time.strftime("%-I:%M %p")
+  end
+
+  def end_date
+    self.end_time.strftime("%B %-d, %Y")
+  end
+
+  def end_hour
+    self.end_time.strftime("%-I:%M %p")
+  end
 
 end
