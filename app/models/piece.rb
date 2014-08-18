@@ -4,7 +4,7 @@ class Piece < ActiveRecord::Base
   has_many :events, through: :exhibitions
   has_many :exhibitions
 
-  # def self.create(user_id, url)
+  # def self.create_piece(user_id, url)
   #   self.create({
   #     user_id: user_id, 
   #     url: url 
