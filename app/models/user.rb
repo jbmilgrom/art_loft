@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :events, through: :exhibitions
+  has_many :events, through: :exhibitions
   has_many :exhibitions, through: :pieces
   has_many :pieces
 
@@ -34,17 +34,17 @@ class User < ActiveRecord::Base
 
   #Trying out different notation for class methods... 
   #A class which inherits from Self and thus imbeds a method on the class itself. 
-	class << self
-		def artists
-			self.where(is_artist: true)
-		end
-	end
+  class << self
+    def artists
+      self.where(is_artist: true)
+    end
+  end
 
-	class << self
-		def hosts
-			self.where(has_venue: true)
-		end
-	end
+  class << self
+    def hosts
+      self.where(has_venue: true)
+    end
+  end
 
   def events_hosted
     events = []
