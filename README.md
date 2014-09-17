@@ -1,0 +1,12 @@
+# ArtLoft
+
+Connecting residences with artists looking to showcase work 
+
+![image](https://s3-us-west-2.amazonaws.com/leafpics/portfolio_page/artloft/one.png)
+
+Main database relational loop:  
+|User| --< |Piece| --< |Exhibition| >-- |Event| >-- |Venue| >-- |User|
+
+A User may have many Pieces, and each Piece may be displayed at multiple Events.  Since an Event may also display many Pieces, the Exhibition data model is needed to join the many-to-many relationship between Piece and Event.
+
+A single User of the application can wear 1, 2 or 3 hats, in any combination: (1) a consumer interested in attending Events, viewing Pieces on the site, etc; (2) an artist interested in having Pieces viewed on the site or displayed at Events; and (3) a host interested in displaying Pieces at an Event.  Instead of having two additional models (possibly, Artist and Host), the application accounts for this complexity simply through two booleans in the User model, :is_artist? and :has_venue?, set to False by default.  If a User adds a Piece, the PiecesController sets :is_artist? to True.  If a User adds a Venue, the VenuesController sets has_venue? to True.  A User's private profile (show.html.erb) displays different information to each User depending on the value of the each boolean. For consistency, semantic getters - def artists and def host - are included in the Event model.  In addition, ArtistsController and HostsController have been setup to handle RESTful routing to such "resources".  
