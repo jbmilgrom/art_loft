@@ -1,5 +1,8 @@
-== README
-Data Model Structure:
+# ArtLoft
+
+Connecting residences with artists looking to showcase work 
+
+![image](https://s3-us-west-2.amazonaws.com/leafpics/portfolio_page/artloft/one.png)
 
 Main database relational loop:  
 |User| --< |Piece| --< |Exhibition| >-- |Event| >-- |Venue| >-- |User|
